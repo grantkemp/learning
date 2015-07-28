@@ -1,2 +1,0 @@
-# learning
-udacity learning courses
