@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3AE89830-59F8-4769-9F73-F6E1E432BDB9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TimerApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D7402AEC8BD0F136CC8D91F040C5399ACE706DA1</key>
+		<string>https://bitbucket.org/grantkemp/moovweb-toastmasters.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Ios App/TimerApp.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D7402AEC8BD0F136CC8D91F040C5399ACE706DA1</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/grantkemp/moovweb-toastmasters.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D7402AEC8BD0F136CC8D91F040C5399ACE706DA1</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D7402AEC8BD0F136CC8D91F040C5399ACE706DA1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Toastmasters</string>
+		</dict>
+	</array>
+</dict>
+</plist>
