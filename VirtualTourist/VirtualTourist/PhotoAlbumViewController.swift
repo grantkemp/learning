@@ -49,9 +49,6 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
              var itemToDeleteArray = [NSIndexPath]()
             var photosToDelete = [Photo]()
             for (key,indexpath) in selectedCells {
-                println("deleting key \(key)")
-                
-                //TODO: fix deleting images to prevent array being out of order"
                 if let selectedPhoto = selectedPin?.attachedPhotos.allObjects[indexpath.row] as? Photo {
                photosToDelete.append(selectedPhoto)
                 itemToDeleteArray.append(indexpath)
@@ -72,6 +69,7 @@ self.downloadnewPinPics()
 
         }
         else {
+            //Delete All images if new Collection is selected
             let allImagesList:[Photo] = selectedPin?.attachedPhotos.allObjects as! [Photo]
          selectedPin?.deleteImages(allImagesList, context: sharedContext, completionHandler: { (complete, error) -> Void in
             self.downloadnewPinPics()
@@ -101,9 +99,6 @@ self.downloadnewPinPics()
        
         // Display Image
         var imageToDisplay = UIImage()
-        println("---")
-        println((selectedPin?.attachedPhotos.allObjects[indexPath.row] as! Photo).getCachedPath())
-        println("---")
         if photoForCell.cacheddUrl != "" {
             //its cached, therefor show it
             
@@ -127,9 +122,6 @@ self.downloadnewPinPics()
                     println("error downloading image")
                 }
                 else {
-//                    let  newlyDownloadedImagePath = localImagePath
-//                    photoForCell.cacheddUrl = newlyDownloadedImagePath
-                    
                     if let newlyDownloadedImage = UIImage(contentsOfFile: photoForCell.getCachedPath()) {
                         imageToDisplay = newlyDownloadedImage
                    
@@ -143,13 +135,7 @@ self.downloadnewPinPics()
                     
                 }
             })
-     
-           
     }
-
-        
-        
-    
     return cell
 }
     func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -177,15 +163,10 @@ self.downloadnewPinPics()
                 cell.vw_overlay.alpha = 0
                 cell.selected = false
             }
-
-       
-        
-        
     }
     
     //MARK: Helper Functions:
     func downloadnewPinPics(){
-        
         FlickrClient.sharedInstance().GetFlickrPhotoUrls(self.selectedPin!) { (resultPinAlbum, error) -> Void in
             if let pinDownloadError = error {
                 println("unable to download pins")

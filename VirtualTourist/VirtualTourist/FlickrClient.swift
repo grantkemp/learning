@@ -18,10 +18,8 @@ class FlickrClient:NSObject {
     
     /*Config Object */
     var config = FlickrConfig()
-    
     //Method Variables
     var pinAlbumCollection = PinAlbumCollection()
-    
     //Helper Functions
     var photoManager = PhotoHelper()
 
@@ -100,22 +98,7 @@ class FlickrClient:NSObject {
         }
         return "&" + join("&", urlVariables)
     }
-    
 
-//    /* Helper: Given raw JSON, return a usable Foundation object */
-//    class func parseJSONWithCompletionHandler(data: NSData, completionHandler: (result: AnyObject!, error: NSError?) -> Void) {
-//        
-//        var parsingError: NSError? = nil
-//        
-//        let parsedResult: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &parsingError)
-//        
-//        if let error = parsingError {
-//            completionHandler(result: nil, error: error)
-//        } else {
-//            completionHandler(result: parsedResult, error: nil)
-//        }
-//    }
-    
     class func parseJSONWithCompletionhandler(data: NSData, completionHandler: (photoUrls: [String]!, error: NSError?) -> Void) {
         
         var parsingError: NSError? = nil
@@ -134,7 +117,7 @@ class FlickrClient:NSObject {
                 var totalPhotos = (photosArray["total"] as! String).toInt()
                 
                 if totalPhotos > 0 {
-// save photos to local docs
+                    // save photos to local docs
                     if let photos = photosArray.valueForKey("photo") {
                         //Parse out the urls for the photos
                         var photoUrls = Pin.photoUrlsFromResults(photos as! [[String : AnyObject]])

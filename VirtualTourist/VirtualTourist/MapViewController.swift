@@ -10,25 +10,10 @@ import UIKit
 import MapKit
 import CoreData
 
-/**
-* In this step the view controller conforms to NSFetchedRequestControllerDelegate
-*
-* We needed to make three changes:
-*
-* 1. declare that we will conform to the protocol, in the line below
-* 2. set the view controller as the fetchedResultsController's delegate (in viewDidLoad)
-* 3. implement the four protocol methods
-*
-*/
-
-
 
 class MapViewController: UIViewController,MKMapViewDelegate{
     
     var pins = [CLLocationCoordinate2D]()
-    
-    
-    
     // Outbound Vars
     var selectedPin:Pin?
     //Mark: MethodVariables
@@ -116,7 +101,6 @@ class MapViewController: UIViewController,MKMapViewDelegate{
     }
     
     func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
-        
         if (isInEditingMode) {
             //Delete the Pin
             pinManager.removePinFromMap(mapView, pinView: view)
@@ -132,8 +116,6 @@ class MapViewController: UIViewController,MKMapViewDelegate{
                     self.performSegueWithIdentifier("showPinView", sender: self)
                 }
             })
-            
-           
         }
         
     }
@@ -161,8 +143,6 @@ class MapViewController: UIViewController,MKMapViewDelegate{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showPinView" {
             let destController = segue.destinationViewController as! PhotoAlbumViewController
-           
-            
             destController.selectedPin = selectedPin!
         }
     }

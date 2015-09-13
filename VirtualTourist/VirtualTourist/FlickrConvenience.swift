@@ -58,7 +58,6 @@ extension FlickrClient {
                     }
                     else if photoUrls.count > numberImagesToAttachToPin {
                         var startingPosition = photoUrls.count - numberImagesToAttachToPin
-                        println(startingPosition)
                         for var i = startingPosition; i<photoUrls.count; ++i {
                             resultsArray.append(photoUrls[i])
                             
