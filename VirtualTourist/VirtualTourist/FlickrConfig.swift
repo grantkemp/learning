@@ -15,6 +15,7 @@ class FlickrConfig: NSObject {
     static var secret = "4787ee9e52ce4e46" //TODO: Remove this if not needed due to security
     static var numToShowPerPage = 4
     static var paths:[AnyObject] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+    static var nameOfCollection = "default"
     
     
     //debugmode

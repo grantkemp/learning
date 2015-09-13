@@ -44,10 +44,12 @@ class MapHelper: NSObject {
 
     }
     
-    func createMapAnnotation(touchmapCoord: CLLocationCoordinate2D, pinReference:NSManagedObjectID) -> MKPointAnnotation{
+    func createMapAnnotation(touchmapCoord: CLLocationCoordinate2D, pinReference:NSManagedObjectID?) -> MKPointAnnotation{
         let annotation = MKPointAnnotation()
         annotation.coordinate = touchmapCoord
-        annotation.title = "\(pinReference)"
+        if let uw_pinref = pinReference {
+        annotation.title = "\(uw_pinref)"
+        }
         return annotation
     }
     

@@ -19,7 +19,6 @@ class FlickrClient:NSObject {
     /*Config Object */
     var config = FlickrConfig()
     //Method Variables
-    var pinAlbumCollection = PinAlbumCollection()
     //Helper Functions
     var photoManager = PhotoHelper()
 

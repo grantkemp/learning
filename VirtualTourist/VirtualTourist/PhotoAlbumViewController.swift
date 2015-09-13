@@ -165,7 +165,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     //MARK: Helper Functions:
-    func downloadnewPinPics(){
+    func downloadnewPinPics(){ 
         FlickrClient.sharedInstance().GetFlickrPhotoUrls(self.selectedPin!) { (resultPinAlbum, error) -> Void in
             if let pinDownloadError = error {
                 println("unable to download pins")

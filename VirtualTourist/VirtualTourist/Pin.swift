@@ -24,6 +24,7 @@ class Pin : NSManagedObject {
     @NSManaged var reference: Int
     @NSManaged var numberDeleted:Int
     @NSManaged var attachedPhotos: NSSet
+    @NSManaged var storeLocationName: PinCollection
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
@@ -37,6 +38,7 @@ class Pin : NSManagedObject {
         long = llong as Double
         reference = 1
         numberDeleted = 0
+        storeLocationName = PinHelper.sharedInstance().cdPinCollection!
         
     }
 
@@ -78,7 +80,7 @@ class Pin : NSManagedObject {
     
     
    private func hasPhotosAttached() -> Bool{
-        if self.attachedPhotos.count > 0 {
+        if attachedPhotos.count > 0 {
             return true
         }
         else {
@@ -102,7 +104,6 @@ class Pin : NSManagedObject {
         self.numberDeleted += photoToRemove.count
         
         for photoItem in photoToRemove {
-        photoItem.deletefileFromLocal()
         context.deleteObject(photoItem)
         }
         CoreDataStackManager.sharedInstance().saveContext()

@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 @objc(Photo)
 
@@ -39,46 +40,61 @@ class Photo: NSManagedObject {
     
     
     func downloadImageToLocalDisk(completionHandler: (localImagePath: String, error: String?) -> Void){
+//        NSURLConnection.sendAsynchronousRequest(request, queue: mainQueue, completionHandler: { (response, data, error) -&gt; Void in
         
         if let photoUrlToUse  = NSURL(string: self.photoUrl) {
+            let requestToUse = NSURLRequest(URL: photoUrlToUse)
+            let mainQueue = NSOperationQueue.mainQueue()
+            NSURLConnection.sendAsynchronousRequest(requestToUse, queue: mainQueue, completionHandler: { (response, returnedData, error) -> Void in
+                if let uw_error = error {
+                    println("there has been an error downloading the file")
+                    
+                }
+                else {
+                    let imageData = returnedData
+                    //Download image Async
+                    let paths = FlickrConfig.paths
+                    //Create Path to Save
+                    var savePath = ""
+                    var imagePathToShow = ""
+                    if paths.count > 0 {
+                        
+                        
+                        let fileStoragePath = "/filename\(photoUrlToUse.lastPathComponent!)"
+                        savePath = self.documentsDirectory + fileStoragePath
+                        
+                        //check if its already downloaded:
+                        if NSFileManager.defaultManager().fileExistsAtPath(savePath) {
+                            println("The file already exists!")
+                            imagePathToShow = savePath
+                        }
+                        else {
+                            // Save the file
+                            NSFileManager.defaultManager().createFileAtPath(savePath, contents: imageData, attributes: nil)
+                            imagePathToShow = savePath
+                        }
+                        self.cacheddUrl = fileStoragePath
+                        CoreDataStackManager.sharedInstance().saveContext()
+                    }
+                    completionHandler(localImagePath: imagePathToShow, error: nil)
+                }
+            })
             
-        var imageData = NSData(contentsOfURL: photoUrlToUse)
         
-        let paths = FlickrConfig.paths
-        //Create Path to Save
-        var savePath = ""
-        var imagePathToShow = ""
-        if paths.count > 0 {
-            
-           
-            let fileStoragePath = "/filename\(photoUrlToUse.lastPathComponent!)"
-            savePath = documentsDirectory + fileStoragePath
-            
-            //check if its already downloaded:
-            if NSFileManager.defaultManager().fileExistsAtPath(savePath) {
-                println("The file already exists!")
-                imagePathToShow = savePath
-            }
-            else {
-                // Save the file
-                NSFileManager.defaultManager().createFileAtPath(savePath, contents: imageData, attributes: nil)
-                imagePathToShow = savePath
-            }
-            self.cacheddUrl = fileStoragePath
-            CoreDataStackManager.sharedInstance().saveContext()
-        }
-        completionHandler(localImagePath: imagePathToShow, error: nil)
         }
     }
 
     func deletefileFromLocal() {
         var error: NSError?
-        NSFileManager.defaultManager().removeItemAtPath(self.cacheddUrl, error: &error)
+        NSFileManager.defaultManager().removeItemAtPath(self.getCachedPath(), error: &error)
         println(error)
     }
     
     func getCachedPath() -> String {
         var urlToReturn: String = documentsDirectory + cacheddUrl
         return urlToReturn
+    }
+    override func prepareForDeletion() {
+        self.deletefileFromLocal()
     }
 }

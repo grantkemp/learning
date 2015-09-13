@@ -19,6 +19,12 @@ class MapViewController: UIViewController,MKMapViewDelegate{
     //Mark: MethodVariables
     var isInEditingMode = false
     let k_DELETEBUTTONHEIGHTFORMOVINGMAPVIEWUP:CGFloat = 40
+    var newAnnotation = MKPointAnnotation() // used to keep a handle on new pins being generated so we can delete previous pin when dragging and holding in MapView
+    //Dragging Methods for new pin
+    var pinState = k_PINMODE.none
+    enum k_PINMODE {
+    case none, pinNew, pinDragging,pinDragEnded
+    }
     
     // Helpers
     var mapManager = MapHelper()
@@ -70,6 +76,9 @@ class MapViewController: UIViewController,MKMapViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //FIRST Run checkIf Core Data Pin Collection exists, if not create one
+       var collectionToUse =  self.fetchPinCollection() //TODO: refactor to setup album in Helper
+pinManager.cdPinCollection = collectionToUse
         
         //Add Long Press to Map
         let lpgr = UILongPressGestureRecognizer(target: self, action: "addPintoMap:")
@@ -88,16 +97,25 @@ class MapViewController: UIViewController,MKMapViewDelegate{
     //Mark: Map Methods
     
     func addPintoMap(gestureRecognizer: UIGestureRecognizer) {
-        if (gestureRecognizer.state) != UIGestureRecognizerState.Ended {
+        switch gestureRecognizer.state {
+        case UIGestureRecognizerState.Began:
+            pinState = k_PINMODE.pinNew
+            newAnnotation = pinManager.addPinToMap(mp_mapview, clearExistingTempPin: nil, gestureRecognizer: gestureRecognizer,isfinalLocationForPin: false)
             return
-        }
-        else {
-            let touchpoint = gestureRecognizer.locationInView(mp_mapview)
-            let touchmapCoord:CLLocationCoordinate2D = mp_mapview.convertPoint(touchpoint, toCoordinateFromView: mp_mapview)
+        case UIGestureRecognizerState.Changed:
+            pinState = k_PINMODE.pinDragging
+            newAnnotation = pinManager.addPinToMap(mp_mapview, clearExistingTempPin: newAnnotation, gestureRecognizer: gestureRecognizer, isfinalLocationForPin:false)
+            return
+        case UIGestureRecognizerState.Ended:
+           pinState = k_PINMODE.none
+            newAnnotation = pinManager.addPinToMap(mp_mapview, clearExistingTempPin: newAnnotation, gestureRecognizer: gestureRecognizer, isfinalLocationForPin: true)
+            newAnnotation = MKPointAnnotation() // Blank the temporary holder
             
-            pinManager.addPinToMap(mp_mapview, location: touchmapCoord)
-            
+            return
+        default:
+            println("Oops, unknown Gesture recogniser state: \(gestureRecognizer)")
         }
+
     }
     
     func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
@@ -106,8 +124,8 @@ class MapViewController: UIViewController,MKMapViewDelegate{
             pinManager.removePinFromMap(mapView, pinView: view)
         }
         else {
-            //check if there is a matching ObjectId
-            pinManager.findMatchingPinInCollcetion(pinManager.pinsCD, AnnotationIDToMatch: view.annotation, completionHandler: { (matchedPin, error) -> Void in
+          //  check if there is a matching ObjectId
+            pinManager.findMatchingPinInCollection(view.annotation, completionHandler: { (matchedPin, error) -> Void in
                 if let un_error = error {
                     println(error)
                 }
@@ -132,17 +150,22 @@ class MapViewController: UIViewController,MKMapViewDelegate{
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = false
-            pinView!.animatesDrop = true
         }
         else {
             pinView!.annotation = annotation
+        }
+        if pinState == k_PINMODE.pinNew {
+         pinView!.animatesDrop = true
+        }
+        else {
+            pinView!.animatesDrop = false
         }
         
         return pinView
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showPinView" {
-            let destController = segue.destinationViewController as! PhotoAlbumViewController
+            let destController = segue.destinationViewController as! PhotoAlbumViewController 
             destController.selectedPin = selectedPin!
         }
     }
@@ -152,13 +175,6 @@ class MapViewController: UIViewController,MKMapViewDelegate{
 
 //MARK: Coredata - store Items
     func insertNewPin(sender: AnyObject) {
-    
-    // Step 4: Create an Event object (and append it to the events array.)
-    
-    
-    // Step 5: Save the context (and check for an error)
-    // (see the actorPicker(:didPickActor:) method for an example
-    
     var error: NSError?
     
     sharedContext.save(&error)
@@ -170,8 +186,7 @@ class MapViewController: UIViewController,MKMapViewDelegate{
 
     }
 //MARK: Coredata Methods
-    
-    
+
     lazy var sharedContext: NSManagedObjectContext =  {
         return CoreDataStackManager.sharedInstance().managedObjectContext!
         }()
@@ -179,38 +194,35 @@ class MapViewController: UIViewController,MKMapViewDelegate{
     func saveContext() {
         CoreDataStackManager.sharedInstance().saveContext()
     }
+    func fetchPinCollection() -> PinCollection {
+        var fetchError: NSErrorPointer = nil
+        var mainCollection:PinCollection?
+        
+        //create the fetch request
+        let fetchRequest = NSFetchRequest(entityName: "PinCollection")
+        
+        //execute the request
+        let results = sharedContext.executeFetchRequest(fetchRequest, error: fetchError)
+        
+        if fetchError != nil {
+            println("Error fetching results")
 
-    
-    
-//MARK: CoreData Methods- fetched results controller // Not Enabled 
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-        
+        }
+        else {
+            //first result always shown as there is only 1 collection
+            let resultsCount = results!.count
+            if results?.count == 0 {
+                //create a  new default collection
+                mainCollection = PinCollection(createNew: true, context: sharedContext)
+                
+            }
+            else {
+                mainCollection = results?.first as! PinCollection
+                println(mainCollection)
+            }
+            
+        }
+        return mainCollection!
     }
-    func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
-        
-    }
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        
-    }
-    func controllerWillChangeContent(controller: NSFetchedResultsController) {
-        
-    }
-    
-    
-    lazy var fetchedResultsController: NSFetchedResultsController = {
-        
-        // Create the fetch request
-        let fetchRequest = NSFetchRequest(entityName: "Pin")
-        
-        // Add a sort descriptor.
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
-        
-        // Create the Fetched Results Controller
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.sharedContext, sectionNameKeyPath: nil, cacheName: nil)
-        
-        // Return the fetched results controller. It will be the value of the lazy variable
-        return fetchedResultsController
-        } ()
 
-    
 }
