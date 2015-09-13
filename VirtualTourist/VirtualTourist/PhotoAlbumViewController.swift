@@ -63,7 +63,6 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
                 itemToDeleteArray.removeAll(keepCapacity: false)
                 photosToDelete.removeAll(keepCapacity: false)
                 
-self.downloadnewPinPics()
             })
             
 
