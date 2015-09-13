@@ -50,6 +50,7 @@ class MapHelper: NSObject {
         if let uw_pinref = pinReference {
         annotation.title = "\(uw_pinref)"
         }
+        
         return annotation
     }
     

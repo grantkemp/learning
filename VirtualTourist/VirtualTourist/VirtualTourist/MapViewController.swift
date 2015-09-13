@@ -14,6 +14,7 @@ import CoreData
 class MapViewController: UIViewController,MKMapViewDelegate{
     
     var pins = [CLLocationCoordinate2D]()
+
     // Outbound Vars
     var selectedPin:Pin?
     //Mark: MethodVariables
@@ -134,6 +135,7 @@ pinManager.cdPinCollection = collectionToUse
                     self.performSegueWithIdentifier("showPinView", sender: self)
                 }
             })
+
         }
         
     }
