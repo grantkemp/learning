@@ -175,18 +175,6 @@ pinManager.cdPinCollection = collectionToUse
         var newLocation = mapView.region
         mapManager.savePositionOfMapToLocal(newLocation)    }
 
-//MARK: Coredata - store Items
-    func insertNewPin(sender: AnyObject) {
-    var error: NSError?
-    
-    sharedContext.save(&error)
-    
-    if let error = error {
-    println("error saving context: \(error)")
-    }
-    
-
-    }
 //MARK: Coredata Methods
 
     lazy var sharedContext: NSManagedObjectContext =  {
@@ -219,7 +207,7 @@ pinManager.cdPinCollection = collectionToUse
                 
             }
             else {
-                mainCollection = results?.first as! PinCollection
+                mainCollection = results?.first as? PinCollection
                 println(mainCollection)
             }
             
