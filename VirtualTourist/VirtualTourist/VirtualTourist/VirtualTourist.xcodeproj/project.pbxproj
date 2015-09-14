@@ -17,7 +17,7 @@
 		A144E5A11B87149E00AE7070 /* VirtualTouristTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A144E5A01B87149E00AE7070 /* VirtualTouristTests.swift */; };
 		A144E5AE1B87181A00AE7070 /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A144E5AD1B87181A00AE7070 /* PhotoAlbumViewController.swift */; };
 		A14F19F61B9049B100745339 /* Maphelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F19F51B9049B100745339 /* Maphelper.swift */; };
-		A16785591B91B8A000D990A0 /* PinAlbumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16785581B91B8A000D990A0 /* PinAlbumCollection.swift */; };
+		A16785591B91B8A000D990A0 /* PinCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16785581B91B8A000D990A0 /* PinCollection.swift */; };
 		A1ACA0261B89229B00F6F668 /* PinViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ACA0251B89229B00F6F668 /* PinViewCollectionViewCell.swift */; };
 		A1ACA02A1B892DFB00F6F668 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ACA0291B892DFB00F6F668 /* Pin.swift */; };
 		A1ACA02C1B892EFD00F6F668 /* FlickrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ACA02B1B892EFD00F6F668 /* FlickrClient.swift */; };
@@ -54,7 +54,8 @@
 		A144E5A01B87149E00AE7070 /* VirtualTouristTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualTouristTests.swift; sourceTree = "<group>"; };
 		A144E5AD1B87181A00AE7070 /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
 		A14F19F51B9049B100745339 /* Maphelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Maphelper.swift; sourceTree = "<group>"; };
-		A16785581B91B8A000D990A0 /* PinAlbumCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinAlbumCollection.swift; sourceTree = "<group>"; };
+		A16785581B91B8A000D990A0 /* PinCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinCollection.swift; sourceTree = "<group>"; };
+		A167855A1B91BA3000D990A0 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		A1ACA0251B89229B00F6F668 /* PinViewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		A1ACA0291B892DFB00F6F668 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		A1ACA02B1B892EFD00F6F668 /* FlickrClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrClient.swift; sourceTree = "<group>"; };
@@ -105,6 +106,7 @@
 		A144E5871B87149E00AE7070 /* VirtualTourist */ = {
 			isa = PBXGroup;
 			children = (
+				A167855A1B91BA3000D990A0 /* MyPlayground.playground */,
 				A14F19F71B904A0500745339 /* Helpers */,
 				A1ACA0281B892DD800F6F668 /* Models */,
 				A1ACA0271B892D2E00F6F668 /* flickrClient */,
@@ -180,7 +182,7 @@
 			children = (
 				A1ACA0291B892DFB00F6F668 /* Pin.swift */,
 				A10DBBE11B97A8720074F39F /* Model.xcdatamodeld */,
-				A16785581B91B8A000D990A0 /* PinAlbumCollection.swift */,
+				A16785581B91B8A000D990A0 /* PinCollection.swift */,
 				A1BDE28B1B9B114200B00B37 /* Photo.swift */,
 			);
 			name = Models;
@@ -301,7 +303,7 @@
 				A10DBBE51B97AB980074F39F /* CoreDataStackManager.swift in Sources */,
 				A1ACA0321B89D50B00F6F668 /* FlickrConvenience.swift in Sources */,
 				A1BDA6A31B9AEBF1007A492B /* PinHelper.swift in Sources */,
-				A16785591B91B8A000D990A0 /* PinAlbumCollection.swift in Sources */,
+				A16785591B91B8A000D990A0 /* PinCollection.swift in Sources */,
 				A10DBBE31B97A8720074F39F /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

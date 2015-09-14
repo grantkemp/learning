@@ -9,6 +9,7 @@
 import Foundation
 
 extension FlickrClient {
+
     struct Methods {
         static let baseUrl = "https://api.flickr.com/services/rest/?method="
         static let search = "flickr.photos.search"
