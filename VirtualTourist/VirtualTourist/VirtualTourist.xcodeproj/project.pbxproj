@@ -55,7 +55,6 @@
 		A144E5AD1B87181A00AE7070 /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
 		A14F19F51B9049B100745339 /* Maphelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Maphelper.swift; sourceTree = "<group>"; };
 		A16785581B91B8A000D990A0 /* PinCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinCollection.swift; sourceTree = "<group>"; };
-		A167855A1B91BA3000D990A0 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		A1ACA0251B89229B00F6F668 /* PinViewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		A1ACA0291B892DFB00F6F668 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		A1ACA02B1B892EFD00F6F668 /* FlickrClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrClient.swift; sourceTree = "<group>"; };
@@ -106,7 +105,6 @@
 		A144E5871B87149E00AE7070 /* VirtualTourist */ = {
 			isa = PBXGroup;
 			children = (
-				A167855A1B91BA3000D990A0 /* MyPlayground.playground */,
 				A14F19F71B904A0500745339 /* Helpers */,
 				A1ACA0281B892DD800F6F668 /* Models */,
 				A1ACA0271B892D2E00F6F668 /* flickrClient */,
