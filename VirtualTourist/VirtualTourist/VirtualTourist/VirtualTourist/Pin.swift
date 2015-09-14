@@ -80,6 +80,7 @@ class Pin : NSManagedObject {
     
     
    private func hasPhotosAttached() -> Bool{
+    println(lat)
         if attachedPhotos.count > 0 {
             return true
         }

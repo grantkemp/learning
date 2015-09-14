@@ -42,6 +42,7 @@ class Photo: NSManagedObject {
     func downloadImageToLocalDisk(completionHandler: (localImagePath: String, error: String?) -> Void){
 //        NSURLConnection.sendAsynchronousRequest(request, queue: mainQueue, completionHandler: { (response, data, error) -&gt; Void in
         
+        
         if let photoUrlToUse  = NSURL(string: self.photoUrl) {
             let requestToUse = NSURLRequest(URL: photoUrlToUse)
             let mainQueue = NSOperationQueue.mainQueue()
@@ -77,6 +78,8 @@ class Photo: NSManagedObject {
                         CoreDataStackManager.sharedInstance().saveContext()
                     }
                     completionHandler(localImagePath: imagePathToShow, error: nil)
+                    
+                    
                 }
             })
             
@@ -94,6 +97,7 @@ class Photo: NSManagedObject {
         var urlToReturn: String = documentsDirectory + cacheddUrl
         return urlToReturn
     }
+    
     override func prepareForDeletion() {
         self.deletefileFromLocal()
     }

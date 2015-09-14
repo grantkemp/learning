@@ -11,9 +11,15 @@
         <attribute name="numberDeleted" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="reference" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="attachedPhotos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="pinRef" inverseEntity="Photo" syncable="YES"/>
+        <relationship name="storeLocationName" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PinCollection" inverseName="attachedPins" inverseEntity="PinCollection" syncable="YES"/>
+    </entity>
+    <entity name="PinCollection" representedClassName="PinCollection" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="attachedPins" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pin" inverseName="storeLocationName" inverseEntity="Pin" syncable="YES"/>
     </entity>
     <elements>
         <element name="Photo" positionX="-54" positionY="45" width="128" height="90"/>
-        <element name="Pin" positionX="-54" positionY="18" width="128" height="120"/>
+        <element name="Pin" positionX="-54" positionY="18" width="128" height="135"/>
+        <element name="PinCollection" positionX="-45" positionY="63" width="128" height="75"/>
     </elements>
 </model>
