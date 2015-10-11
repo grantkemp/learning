@@ -122,7 +122,6 @@ class VoiceRecorderViewController: UIViewController,AVAudioRecorderDelegate{
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "showRecordingPlayback") {
-            print("showing Segue for recording")
             let playsoundsvc: PlaySoundsViewController = segue.destinationViewController as! PlaySoundsViewController
             let data = sender as! RecordedAudio
             playsoundsvc.receivedAudio = data
