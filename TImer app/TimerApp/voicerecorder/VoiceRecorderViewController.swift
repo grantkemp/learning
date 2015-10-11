@@ -30,7 +30,7 @@ class VoiceRecorderViewController: UIViewController,AVAudioRecorderDelegate{
         recordingtext.hidden = false
         recordingtext.text = "Recording"
         
-        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         
         let currentDateTime = NSDate()
         let formatter = NSDateFormatter()
@@ -105,8 +105,8 @@ class VoiceRecorderViewController: UIViewController,AVAudioRecorderDelegate{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "showRecordingPlayback") {
             println("showing Segue for recording")
-            let playsoundsvc: PlaySoundsViewController = segue.destinationViewController as! PlaySoundsViewController
-            let data = sender as! RecordedAudio
+            let playsoundsvc: PlaySoundsViewController = segue.destinationViewController as PlaySoundsViewController
+            let data = sender as RecordedAudio
             playsoundsvc.receivedAudio = data
         }
     }
