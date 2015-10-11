@@ -45,11 +45,15 @@ class PlaySoundsViewController: UIViewController {
 //       //pitch processer
         
         audioEngine = AVAudioEngine()
-        audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
+        audioFile = try? AVAudioFile(forReading: receivedAudio.filePathUrl)
         
-        var localFilePath = receivedAudio.filePathUrl
-        var errorReport: NSError?
-        audio = AVAudioPlayer(contentsOfURL: localFilePath, error: &errorReport)
+        let localFilePath = receivedAudio.filePathUrl
+        do {
+            audio = try AVAudioPlayer(contentsOfURL: localFilePath)
+        } catch let error as NSError {
+            print(error)
+            audio = nil
+        }
         audio.enableRate = true
         
     }
@@ -71,10 +75,10 @@ class PlaySoundsViewController: UIViewController {
     func playAudioWithVariablePitch(pitch: Float){
         stopAndResetPlaybackState()
         
-        var audioPlayerNode = AVAudioPlayerNode()
+        let audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
         
-        var changePitchEffect = AVAudioUnitTimePitch()
+        let changePitchEffect = AVAudioUnitTimePitch()
         changePitchEffect.pitch = pitch
         audioEngine.attachNode(changePitchEffect)
         
@@ -82,12 +86,19 @@ class PlaySoundsViewController: UIViewController {
         audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
         
         audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
-        audioEngine.startAndReturnError(nil)
+        do {
+            try audioEngine.start()
+        }
+            catch let error as NSError {
+                print("error starting up Audio Engine: \(error.localizedDescription)")
+                return
+            }
         
         audioPlayerNode.play()
     }
     func stopAndResetPlaybackState(){
-        audio.stop()
+        let audioSession = AVAudioSession.sharedInstance()
+        try! audioSession.setActive(false)
         audioEngine.stop()
         audioEngine.reset()
     }
