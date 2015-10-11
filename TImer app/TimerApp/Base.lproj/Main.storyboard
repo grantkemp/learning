@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="GN6-wO-dbi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="GN6-wO-dbi">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Record-->
@@ -18,8 +20,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NN-QY-HYH" userLabel="microphone">
-                                <rect key="frame" x="113" y="242" width="94" height="83"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NN-QY-HYH" userLabel="microphone">
+                                <rect key="frame" x="96" y="187.5" width="128" height="113"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9NN-QY-HYH" secondAttribute="height" multiplier="94:83" id="y4q-wI-vB8"/>
+                                </constraints>
                                 <state key="normal" title="Button" image="microphone deselected">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -27,8 +33,12 @@
                                     <action selector="microphoneButton:" destination="XzF-xx-EZQ" eventType="touchUpInside" id="9sz-I6-prE"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNX-om-FOI" userLabel="playbackbutton">
-                                <rect key="frame" x="123" y="388" width="75" height="75"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNX-om-FOI" userLabel="playbackbutton">
+                                <rect key="frame" x="128.5" y="372.5" width="64" height="64"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fNX-om-FOI" secondAttribute="height" multiplier="1:1" id="aYC-Jx-7yX"/>
+                                </constraints>
                                 <state key="normal" title="Button" image="recordingstop">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -36,14 +46,27 @@
                                     <action selector="playbackButton:" destination="XzF-xx-EZQ" eventType="touchUpInside" id="cqF-iQ-0qH"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap to Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNE-Yz-AmR">
-                                <rect key="frame" x="106" y="333" width="109" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNE-Yz-AmR">
+                                <rect key="frame" x="83" y="308.5" width="153.5" height="24"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" red="0.40000000596046448" green="0.80000001192092896" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="9NN-QY-HYH" firstAttribute="centerX" secondItem="Ffy-yt-UQG" secondAttribute="centerX" id="0W7-ZA-8aG"/>
+                            <constraint firstItem="9NN-QY-HYH" firstAttribute="width" secondItem="Ffy-yt-UQG" secondAttribute="width" multiplier="0.4" id="1J5-sI-zfq"/>
+                            <constraint firstItem="JNE-Yz-AmR" firstAttribute="width" secondItem="9NN-QY-HYH" secondAttribute="width" multiplier="1.2" id="BpU-EJ-phr"/>
+                            <constraint firstItem="fNX-om-FOI" firstAttribute="centerX" secondItem="Ffy-yt-UQG" secondAttribute="centerX" id="FYa-Jb-Z3Q"/>
+                            <constraint firstItem="fNX-om-FOI" firstAttribute="width" secondItem="9NN-QY-HYH" secondAttribute="width" multiplier="0.5" id="Vmr-i9-hgz"/>
+                            <constraint firstItem="JNE-Yz-AmR" firstAttribute="centerX" secondItem="Ffy-yt-UQG" secondAttribute="centerX" id="cPJ-T6-KOl"/>
+                            <constraint firstItem="JNE-Yz-AmR" firstAttribute="top" secondItem="9NN-QY-HYH" secondAttribute="bottom" constant="8" id="eN9-dR-SAn"/>
+                            <constraint firstItem="fNX-om-FOI" firstAttribute="top" secondItem="JNE-Yz-AmR" secondAttribute="bottom" constant="40" id="stH-qy-AJq"/>
+                            <constraint firstItem="9NN-QY-HYH" firstAttribute="centerY" secondItem="Ffy-yt-UQG" secondAttribute="centerY" constant="-40" id="xfu-dF-tOR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Record" id="9v6-8o-wyr"/>
                     <connections>
@@ -70,7 +93,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKB-bd-SLx" userLabel="Snail">
-                                <rect key="frame" x="16" y="114" width="100" height="100"/>
+                                <rect key="frame" x="-4" y="114" width="160" height="100"/>
+                                <animations/>
                                 <state key="normal" image="slowbutton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -79,7 +103,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qky-vl-bZv" userLabel="Chipmunk">
-                                <rect key="frame" x="16" y="234" width="100" height="100"/>
+                                <rect key="frame" x="-4" y="234" width="160" height="100"/>
+                                <animations/>
                                 <state key="normal" image="Chipmunk">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -88,17 +113,12 @@
                                     <action selector="playslowly:" destination="VQU-ON-4BE" eventType="touchUpInside" id="8aj-PX-NHu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAw-41-FQL" userLabel="Rabbit">
-                                <rect key="frame" x="149" y="114" width="155" height="100"/>
-                                <state key="normal" image="fast button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playfast:" destination="VQU-ON-4BE" eventType="touchUpInside" id="uIN-FW-Q3R"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j64-kY-l6C" userLabel="Stop Button">
-                                <rect key="frame" x="135" y="472" width="50" height="50"/>
+                                <rect key="frame" x="128" y="458" width="64" height="64"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="j64-kY-l6C" secondAttribute="height" multiplier="1:1" id="Xk4-gx-ALf"/>
+                                </constraints>
                                 <state key="normal" image="stopbuttonplayback">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -106,8 +126,9 @@
                                     <action selector="stopPlayback:" destination="VQU-ON-4BE" eventType="touchUpInside" id="Ib5-RY-M0X"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMr-7Q-sYv" userLabel="Darth Vader">
-                                <rect key="frame" x="176" y="234" width="100" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMr-7Q-sYv" userLabel="Darth Vader">
+                                <rect key="frame" x="164" y="234" width="160" height="100"/>
+                                <animations/>
                                 <state key="normal" image="Darth Vader">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -115,19 +136,38 @@
                                     <action selector="playvader:" destination="VQU-ON-4BE" eventType="touchUpInside" id="SdI-j8-oab"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAw-41-FQL" userLabel="Rabbit">
+                                <rect key="frame" x="164" y="114" width="160" height="100"/>
+                                <animations/>
+                                <state key="normal" image="fast button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playfast:" destination="VQU-ON-4BE" eventType="touchUpInside" id="uIN-FW-Q3R"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="yAw-41-FQL" firstAttribute="trailing" secondItem="obg-Pk-JdX" secondAttribute="trailingMargin" id="A2L-om-NeN"/>
-                            <constraint firstItem="MKB-bd-SLx" firstAttribute="leading" secondItem="obg-Pk-JdX" secondAttribute="leadingMargin" id="EGa-mf-VE0"/>
+                            <constraint firstItem="ZMr-7Q-sYv" firstAttribute="width" secondItem="MKB-bd-SLx" secondAttribute="width" id="1Wh-lI-pbg"/>
+                            <constraint firstItem="MKB-bd-SLx" firstAttribute="width" secondItem="obg-Pk-JdX" secondAttribute="width" multiplier="0.5" id="8iX-zh-leE"/>
+                            <constraint firstItem="ZMr-7Q-sYv" firstAttribute="height" secondItem="MKB-bd-SLx" secondAttribute="height" id="EIU-V3-0hJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yAw-41-FQL" secondAttribute="trailing" constant="-20" id="Fzu-bN-nhb"/>
                             <constraint firstItem="bSy-yd-CUE" firstAttribute="top" secondItem="j64-kY-l6C" secondAttribute="bottom" constant="46" id="J6z-al-yup"/>
-                            <constraint firstItem="qky-vl-bZv" firstAttribute="leading" secondItem="obg-Pk-JdX" secondAttribute="leadingMargin" id="Niq-Nx-TUk"/>
+                            <constraint firstItem="qky-vl-bZv" firstAttribute="leading" secondItem="obg-Pk-JdX" secondAttribute="leadingMargin" constant="-20" id="Niq-Nx-TUk"/>
+                            <constraint firstItem="qky-vl-bZv" firstAttribute="top" secondItem="MKB-bd-SLx" secondAttribute="bottom" constant="20" id="R03-Xn-322"/>
                             <constraint firstAttribute="centerX" secondItem="j64-kY-l6C" secondAttribute="centerX" id="RLs-2f-AiE"/>
                             <constraint firstItem="MKB-bd-SLx" firstAttribute="top" secondItem="puE-A6-WRh" secondAttribute="bottom" constant="50" id="SAC-35-U3g"/>
-                            <constraint firstItem="ZMr-7Q-sYv" firstAttribute="top" secondItem="yAw-41-FQL" secondAttribute="bottom" constant="20" id="Yg6-g1-xhy"/>
-                            <constraint firstItem="qky-vl-bZv" firstAttribute="top" secondItem="MKB-bd-SLx" secondAttribute="bottom" constant="20" id="eZu-mE-I3Y"/>
-                            <constraint firstItem="yAw-41-FQL" firstAttribute="top" secondItem="puE-A6-WRh" secondAttribute="bottom" constant="50" id="k0P-vB-yWG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ZMr-7Q-sYv" secondAttribute="trailing" id="uuI-Mq-O2L"/>
+                            <constraint firstItem="j64-kY-l6C" firstAttribute="width" secondItem="MKB-bd-SLx" secondAttribute="width" multiplier="0.4" id="d6N-Ni-bhV"/>
+                            <constraint firstItem="ZMr-7Q-sYv" firstAttribute="centerY" secondItem="qky-vl-bZv" secondAttribute="centerY" id="dLR-82-0jr"/>
+                            <constraint firstItem="MKB-bd-SLx" firstAttribute="leading" secondItem="obg-Pk-JdX" secondAttribute="leadingMargin" constant="-20" id="evp-qB-gqP"/>
+                            <constraint firstItem="yAw-41-FQL" firstAttribute="centerY" secondItem="MKB-bd-SLx" secondAttribute="centerY" id="f9H-hW-fyq"/>
+                            <constraint firstItem="qky-vl-bZv" firstAttribute="height" secondItem="MKB-bd-SLx" secondAttribute="height" id="jNk-FV-MnQ"/>
+                            <constraint firstItem="qky-vl-bZv" firstAttribute="width" secondItem="MKB-bd-SLx" secondAttribute="width" id="kgB-Fb-PBq"/>
+                            <constraint firstItem="yAw-41-FQL" firstAttribute="height" secondItem="MKB-bd-SLx" secondAttribute="height" id="n9r-g7-H2i"/>
+                            <constraint firstItem="yAw-41-FQL" firstAttribute="width" secondItem="MKB-bd-SLx" secondAttribute="width" id="ocX-Yc-y8v"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZMr-7Q-sYv" secondAttribute="trailing" constant="-20" id="uuI-Mq-O2L"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="e2A-gl-PrN"/>
@@ -148,6 +188,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="A4i-Ao-8vO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -168,9 +209,4 @@
         <image name="slowbutton" width="100" height="100"/>
         <image name="stopbuttonplayback" width="50" height="50"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>
