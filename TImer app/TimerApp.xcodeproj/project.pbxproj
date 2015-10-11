@@ -127,7 +127,7 @@
 		A10FEC951ACE4B8B00BB5CC7 /* VoiceRecorder */ = {
 			isa = PBXGroup;
 			children = (
-				A10FECB21AD2B59700BB5CC7 /* RecordedAudio.swift */,
+				A1C91B411BCB1F33003D1E44 /* Model */,
 				A10FECA61AD1396C00BB5CC7 /* VoiceRecorderViewController.swift */,
 				A10FECA81AD16AD400BB5CC7 /* PlaySoundsViewController.swift */,
 				A10FECB01AD2A8A300BB5CC7 /* stopbutton.png */,
@@ -148,6 +148,14 @@
 				A10FEC951ACE4B8B00BB5CC7 /* VoiceRecorder */,
 			);
 			name = assets;
+			sourceTree = "<group>";
+		};
+		A1C91B411BCB1F33003D1E44 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A10FECB21AD2B59700BB5CC7 /* RecordedAudio.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
