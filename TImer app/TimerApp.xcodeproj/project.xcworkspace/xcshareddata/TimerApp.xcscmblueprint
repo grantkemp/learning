@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "240DBD38FD10C87990CBC4932A98F835B686EA3F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3CD6DB2D91D7599DF412C0928ADBF1FD9753E657" : 0,
+    "240DBD38FD10C87990CBC4932A98F835B686EA3F" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3AE89830-59F8-4769-9F73-F6E1E432BDB9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3CD6DB2D91D7599DF412C0928ADBF1FD9753E657" : "",
+    "240DBD38FD10C87990CBC4932A98F835B686EA3F" : "Submission\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TimerApp",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TImer app\/TimerApp.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/grantkemp\/learning.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "240DBD38FD10C87990CBC4932A98F835B686EA3F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/grantkemp\/udacity-training-submission.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3CD6DB2D91D7599DF412C0928ADBF1FD9753E657"
+    }
+  ]
+}

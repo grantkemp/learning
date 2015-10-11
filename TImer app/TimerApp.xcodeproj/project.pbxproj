@@ -22,12 +22,6 @@
 		A10FECAF1AD1A5E100BB5CC7 /* movie_quote2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A10FECAE1AD1A5E100BB5CC7 /* movie_quote2.mp3 */; };
 		A10FECB11AD2A8A300BB5CC7 /* stopbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = A10FECB01AD2A8A300BB5CC7 /* stopbutton.png */; };
 		A10FECB31AD2B59700BB5CC7 /* RecordedAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10FECB21AD2B59700BB5CC7 /* RecordedAudio.swift */; };
-		A11D952E1AD3E5BB003A974D /* PitchPerfect_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = A11D95281AD3E5BB003A974D /* PitchPerfect_1024.png */; };
-		A11D952F1AD3E5BB003A974D /* PitchPerfect_120.png in Resources */ = {isa = PBXBuildFile; fileRef = A11D95291AD3E5BB003A974D /* PitchPerfect_120.png */; };
-		A11D95301AD3E5BB003A974D /* PitchPerfect_152.png in Resources */ = {isa = PBXBuildFile; fileRef = A11D952A1AD3E5BB003A974D /* PitchPerfect_152.png */; };
-		A11D95311AD3E5BB003A974D /* PitchPerfect_180.png in Resources */ = {isa = PBXBuildFile; fileRef = A11D952B1AD3E5BB003A974D /* PitchPerfect_180.png */; };
-		A11D95321AD3E5BB003A974D /* PitchPerfect_512.png in Resources */ = {isa = PBXBuildFile; fileRef = A11D952C1AD3E5BB003A974D /* PitchPerfect_512.png */; };
-		A11D95331AD3E5BB003A974D /* PitchPerfect_76.png in Resources */ = {isa = PBXBuildFile; fileRef = A11D952D1AD3E5BB003A974D /* PitchPerfect_76.png */; };
 		A1AAEBB61A7F9882009F805A /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1AAEBB51A7F9882009F805A /* Images-2.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -51,12 +45,6 @@
 		A10FECAE1AD1A5E100BB5CC7 /* movie_quote2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = movie_quote2.mp3; path = voicerecorder/movie_quote2.mp3; sourceTree = "<group>"; };
 		A10FECB01AD2A8A300BB5CC7 /* stopbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stopbutton.png; sourceTree = "<group>"; };
 		A10FECB21AD2B59700BB5CC7 /* RecordedAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecordedAudio.swift; path = voicerecorder/RecordedAudio.swift; sourceTree = "<group>"; };
-		A11D95281AD3E5BB003A974D /* PitchPerfect_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PitchPerfect_1024.png; sourceTree = "<group>"; };
-		A11D95291AD3E5BB003A974D /* PitchPerfect_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PitchPerfect_120.png; sourceTree = "<group>"; };
-		A11D952A1AD3E5BB003A974D /* PitchPerfect_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PitchPerfect_152.png; sourceTree = "<group>"; };
-		A11D952B1AD3E5BB003A974D /* PitchPerfect_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PitchPerfect_180.png; sourceTree = "<group>"; };
-		A11D952C1AD3E5BB003A974D /* PitchPerfect_512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PitchPerfect_512.png; sourceTree = "<group>"; };
-		A11D952D1AD3E5BB003A974D /* PitchPerfect_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PitchPerfect_76.png; sourceTree = "<group>"; };
 		A1AAEBB51A7F9882009F805A /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,23 +142,9 @@
 			name = VoiceRecorder;
 			sourceTree = "<group>";
 		};
-		A11D95271AD3E5BB003A974D /* app icons */ = {
-			isa = PBXGroup;
-			children = (
-				A11D95281AD3E5BB003A974D /* PitchPerfect_1024.png */,
-				A11D95291AD3E5BB003A974D /* PitchPerfect_120.png */,
-				A11D952A1AD3E5BB003A974D /* PitchPerfect_152.png */,
-				A11D952B1AD3E5BB003A974D /* PitchPerfect_180.png */,
-				A11D952C1AD3E5BB003A974D /* PitchPerfect_512.png */,
-				A11D952D1AD3E5BB003A974D /* PitchPerfect_76.png */,
-			);
-			path = "app icons";
-			sourceTree = "<group>";
-		};
 		A144E7451A9D2FFE00425FF9 /* assets */ = {
 			isa = PBXGroup;
 			children = (
-				A11D95271AD3E5BB003A974D /* app icons */,
 				A10FEC951ACE4B8B00BB5CC7 /* VoiceRecorder */,
 			);
 			name = assets;
@@ -235,23 +209,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A11D952F1AD3E5BB003A974D /* PitchPerfect_120.png in Resources */,
 				15D618FF1A645A8F00C48FF1 /* Main.storyboard in Resources */,
-				A11D95331AD3E5BB003A974D /* PitchPerfect_76.png in Resources */,
 				A10FECA51AD1386000BB5CC7 /* Media.xcassets in Resources */,
 				15D619041A645A8F00C48FF1 /* LaunchScreen.xib in Resources */,
-				A11D95311AD3E5BB003A974D /* PitchPerfect_180.png in Resources */,
 				A10FECB11AD2A8A300BB5CC7 /* stopbutton.png in Resources */,
 				A10FECA11AD12F1C00BB5CC7 /* playbutton.png in Resources */,
 				A1AAEBB61A7F9882009F805A /* Images-2.xcassets in Resources */,
 				A10FEC991ACE4BBF00BB5CC7 /* microphone_unselected.png in Resources */,
-				A11D952E1AD3E5BB003A974D /* PitchPerfect_1024.png in Resources */,
 				A10FEC981ACE4BBF00BB5CC7 /* microphone_selected.png in Resources */,
 				A10FECA01AD12F1C00BB5CC7 /* pausebutton.png in Resources */,
 				A10FEC9E1AD12F1C00BB5CC7 /* credit for icons.png in Resources */,
 				A10FECAF1AD1A5E100BB5CC7 /* movie_quote2.mp3 in Resources */,
-				A11D95301AD3E5BB003A974D /* PitchPerfect_152.png in Resources */,
-				A11D95321AD3E5BB003A974D /* PitchPerfect_512.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +293,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -361,7 +329,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -382,7 +350,7 @@
 					"$(PROJECT_DIR)/Pods/Parse",
 				);
 				INFOPLIST_FILE = TimerApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -409,7 +377,7 @@
 					"$(PROJECT_DIR)/Pods/Parse",
 				);
 				INFOPLIST_FILE = TimerApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
