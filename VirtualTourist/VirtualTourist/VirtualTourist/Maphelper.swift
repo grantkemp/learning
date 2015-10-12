@@ -56,7 +56,7 @@ class MapHelper: NSObject {
     
     func setupRegion(centreOfMapPoint: CLLocationCoordinate2D, smallMap: Bool) -> MKCoordinateRegion {
         
-        var region = MKCoordinateRegionMakeWithDistance(centreOfMapPoint, 120000, 120000)
+        let region = MKCoordinateRegionMakeWithDistance(centreOfMapPoint, 120000, 120000)
         return region
     }
     

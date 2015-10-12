@@ -67,8 +67,8 @@ class PinCollection:NSManagedObject {
             return 1
         }
         else {
-            var keys = collection.keys.array
-            sort(&keys, >)
+            var keys = Array(collection.keys)
+            keys.sortInPlace(>)
             highestRef = (keys.last)!
         }
         
@@ -77,7 +77,7 @@ class PinCollection:NSManagedObject {
     
     func lookupReference(lat: CLLocationDegrees, long: CLLocationDegrees) -> Int {
         var reference:Int = -1
-        for (key, album) in self.collection {
+        for (_, album) in self.collection {
             if album.lat == lat {
                 if album.long == long {
                     reference = album.reference

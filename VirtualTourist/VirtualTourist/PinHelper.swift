@@ -38,10 +38,14 @@ class PinHelper: NSObject {
             let newPinView = Pin(llat: location.latitude, llong: location.longitude, llinksToImages: nil, context: sharedContext)
             
             var error: NSError?
-            sharedContext.save(&error)
+            do {
+                try sharedContext.save()
+            } catch let error1 as NSError {
+                error = error1
+            }
             
             if let uw_error = error {
-                println("error saving context: \(uw_error)")
+                print("error saving context: \(uw_error)")
             }
             let pinReference = newPinView.objectID
             newAnnotation = mapManager.createMapAnnotation(touchmapCoord,pinReference: pinReference)
@@ -58,10 +62,11 @@ class PinHelper: NSObject {
     }
     func removePinFromMap(mapview: MKMapView,pinView: MKAnnotationView) {
         let annotationToRemove = pinView.annotation
-        mapview.removeAnnotation(annotationToRemove)
+        mapview.removeAnnotation(annotationToRemove!)
         
-        findMatchingPinInCollection(annotationToRemove) { (matchedPin, error) -> Void in
+        findMatchingPinInCollection(annotationToRemove!) { (matchedPin, error) -> Void in
             if let uw_error = error {
+                print(uw_error)
             }
             else
             {
@@ -82,8 +87,8 @@ class PinHelper: NSObject {
         let pinsCD:[Pin] = PinHelper.sharedInstance().cdPinCollection!.getAllPins()
         for pinItem in pinsCD {
             let pinID = AnnotationIDToMatch.title
-            var idToCompare = "\(pinItem.objectID)"
-            if idToCompare == pinID {
+            let idToCompare = "\(pinItem.objectID)"
+            if idToCompare == pinID! {
                 completionHandler(matchedPin: pinItem, error: nil)
             }
             else {

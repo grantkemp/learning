@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "240DBD38FD10C87990CBC4932A98F835B686EA3F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3CD6DB2D91D7599DF412C0928ADBF1FD9753E657" : 0,
+    "240DBD38FD10C87990CBC4932A98F835B686EA3F" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A1255DA0-7274-4E7A-8534-80B8DA085796",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3CD6DB2D91D7599DF412C0928ADBF1FD9753E657" : "",
+    "240DBD38FD10C87990CBC4932A98F835B686EA3F" : "Submission"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "VirtualTourist",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "VirtualTourist\/VirtualTourist\/VirtualTourist.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/grantkemp\/udacity-training-submission.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "240DBD38FD10C87990CBC4932A98F835B686EA3F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/grantkemp\/udacity-training-submission.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3CD6DB2D91D7599DF412C0928ADBF1FD9753E657"
+    }
+  ]
+}

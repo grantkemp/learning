@@ -84,7 +84,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! PinViewCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! PinViewCollectionViewCell
      let photoForCell = self.selectedPin?.attachedPhotos.allObjects[indexPath.row] as! Photo
         
         //ShowPlaceholder Image
@@ -118,7 +118,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
                 let cachedImagePath = photoForCell.getCachedPath()
                 let cachedImage = photoForCell.cacheddUrl
                 if let uw_error = error {
-                    println("error downloading image")
+                    print("error downloading image")
                 }
                 else {
                     if let newlyDownloadedImage = UIImage(contentsOfFile: photoForCell.getCachedPath()) {
@@ -182,7 +182,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func showDialogAlertInternet(title: String, errorMessage: String) {
-        var alert = UIAlertController(title: "Oops", message: errorMessage, preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "Oops", message: errorMessage, preferredStyle: UIAlertControllerStyle.Alert)
         
         alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
             alert.dismissViewControllerAnimated(true, completion: { () -> Void in

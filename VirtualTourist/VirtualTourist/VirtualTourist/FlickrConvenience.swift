@@ -36,7 +36,7 @@ extension FlickrClient {
 
         FlickrClient.sharedInstance().taskForGetMethod(FlickrClient.Methods.search, parameters: params) { (result, error) -> Void in
             if let fetchError = error {
-                println("unable to get Urls")
+                print("unable to get Urls")
                 completionHandler(resultPinAlbum: nil, error: fetchError)
             }
             else {
@@ -57,7 +57,7 @@ extension FlickrClient {
                         completionHandler(resultPinAlbum: true, error: nil)
                     }
                     else if photoUrls.count > numberImagesToAttachToPin {
-                        var startingPosition = photoUrls.count - numberImagesToAttachToPin
+                        let startingPosition = photoUrls.count - numberImagesToAttachToPin
                         for var i = startingPosition; i<photoUrls.count; ++i {
                             resultsArray.append(photoUrls[i])
                             

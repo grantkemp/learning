@@ -43,10 +43,10 @@ class Pin : NSManagedObject {
     }
 
     func pinStatus(){
-        println(self.objectID)
-        println("pin has \(self.attachedPhotos.count) photos)")
-        println("is a temp id: \(self.objectID.temporaryID)")
-        println("pin is lat \(lat) and long \(long)")
+        print(self.objectID)
+        print("pin has \(self.attachedPhotos.count) photos)")
+        print("is a temp id: \(self.objectID.temporaryID)")
+        print("pin is lat \(lat) and long \(long)")
     }
     
     //MARK: ID Method
@@ -61,13 +61,13 @@ class Pin : NSManagedObject {
         
         for photo in photos {
         //get bits we need for url
-        var farmId = photo["farm"] as! Int
-        var serverID = photo["server"] as! String
-        var photoID = photo["id"] as! String
-        var photoSecret = photo["secret"] as! String
+        let farmId = photo["farm"] as! Int
+        let serverID = photo["server"] as! String
+        let photoID = photo["id"] as! String
+        let photoSecret = photo["secret"] as! String
         
         //Build photo url
-        var photoUrl = "https://farm\(farmId).staticflickr.com/\(serverID)/\(photoID)_\(photoSecret).jpg"
+        let photoUrl = "https://farm\(farmId).staticflickr.com/\(serverID)/\(photoID)_\(photoSecret).jpg"
         photoUrls.append(photoUrl)
         }
         return photoUrls
@@ -80,7 +80,7 @@ class Pin : NSManagedObject {
     
     
    private func hasPhotosAttached() -> Bool{
-    println(lat)
+    print(lat)
         if attachedPhotos.count > 0 {
             return true
         }
@@ -92,7 +92,7 @@ class Pin : NSManagedObject {
     func numberOfPhotosToDownload() -> Int {
         let hasAttachedphotos = self.hasPhotosAttached()
         if hasAttachedphotos {
-            var numToDownload: Int = FlickrConfig.numToShowPerPage - self.attachedPhotos.count
+            let numToDownload: Int = FlickrConfig.numToShowPerPage - self.attachedPhotos.count
             return numToDownload
         }
         else {

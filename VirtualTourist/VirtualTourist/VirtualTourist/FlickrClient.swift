@@ -59,9 +59,9 @@ class FlickrClient:NSObject {
             
             else {
                 //ParseData And Store
-               FlickrClient.parseJSONWithCompletionhandler(data, completionHandler: { (result, error) -> Void in
+               FlickrClient.parseJSONWithCompletionhandler(data!, completionHandler: { (result, error) -> Void in
                 if let parsingError = error  {
-                    println("error parsing Downloaded Data")
+                    print("error parsing Downloaded Data Error: \(parsingError)")
                     
                 }
                 else {
@@ -95,16 +95,16 @@ class FlickrClient:NSObject {
             //break it out into one line
             urlVariables += [key + "=" + "\(escapedValue!)"]
         }
-        return "&" + join("&", urlVariables)
+        return "&" + urlVariables.joinWithSeparator("&")
     }
 
     class func parseJSONWithCompletionhandler(data: NSData, completionHandler: (photoUrls: [String]!, error: NSError?) -> Void) {
         
-        var parsingError: NSError? = nil
-        let parsedResult: AnyObject? =  NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &parsingError) as! NSDictionary
+        let parsingError: NSError? = nil
+        let parsedResult: AnyObject? =  (try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)) as! NSDictionary
         
         if let parseError = parsingError {
-            println("error parsing result")
+            print("error parsing result")
             completionHandler(photoUrls: nil, error: parseError )
         }
         else {
@@ -113,13 +113,13 @@ class FlickrClient:NSObject {
                 
               
                // Lets see how many photos there are
-                var totalPhotos = (photosArray["total"] as! String).toInt()
+                let totalPhotos = Int((photosArray["total"] as! String))
                 
                 if totalPhotos > 0 {
                     // save photos to local docs
                     if let photos = photosArray.valueForKey("photo") {
                         //Parse out the urls for the photos
-                        var photoUrls = Pin.photoUrlsFromResults(photos as! [[String : AnyObject]])
+                        let photoUrls = Pin.photoUrlsFromResults(photos as! [[String : AnyObject]])
                         completionHandler(photoUrls: photoUrls, error: nil)
                     }
 

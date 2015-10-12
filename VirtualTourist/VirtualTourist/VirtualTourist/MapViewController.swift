@@ -78,7 +78,7 @@ class MapViewController: UIViewController,MKMapViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         //FIRST Run checkIf Core Data Pin Collection exists, if not create one
-       var collectionToUse =  self.fetchPinCollection() //TODO: refactor to setup album in Helper
+       let collectionToUse =  self.fetchPinCollection() //TODO: refactor to setup album in Helper
 pinManager.cdPinCollection = collectionToUse
         
         //Add Long Press to Map
@@ -114,12 +114,12 @@ pinManager.cdPinCollection = collectionToUse
             
             return
         default:
-            println("Oops, unknown Gesture recogniser state: \(gestureRecognizer)")
+            print("Oops, unknown Gesture recogniser state: \(gestureRecognizer)")
         }
 
     }
     
-    func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
         if (isInEditingMode) {
             //Delete the Pin
             pinManager.removePinFromMap(mapView, pinView: view)
@@ -140,7 +140,7 @@ pinManager.cdPinCollection = collectionToUse
         
     }
     
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView! {
         if annotation is MKUserLocation {
             //return nil so map view draws "blue dot" for standard user location
             return nil
@@ -171,8 +171,8 @@ pinManager.cdPinCollection = collectionToUse
             destController.selectedPin = selectedPin!
         }
     }
-    func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
-        var newLocation = mapView.region
+    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        let newLocation = mapView.region
         mapManager.savePositionOfMapToLocal(newLocation)    }
 
 //MARK: Coredata Methods
@@ -185,17 +185,23 @@ pinManager.cdPinCollection = collectionToUse
         CoreDataStackManager.sharedInstance().saveContext()
     }
     func fetchPinCollection() -> PinCollection {
-        var fetchError: NSErrorPointer = nil
+        let fetchError: NSErrorPointer = nil
         var mainCollection:PinCollection?
         
         //create the fetch request
         let fetchRequest = NSFetchRequest(entityName: "PinCollection")
         
         //execute the request
-        let results = sharedContext.executeFetchRequest(fetchRequest, error: fetchError)
+        let results: [AnyObject]?
+        do {
+            results = try sharedContext.executeFetchRequest(fetchRequest)
+        } catch let error as NSError {
+            fetchError.memory = error
+            results = nil
+        }
         
         if fetchError != nil {
-            println("Error fetching results")
+            print("Error fetching results")
 
         }
         else {

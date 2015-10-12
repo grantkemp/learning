@@ -39,7 +39,7 @@ class Photo: NSManagedObject {
     }
     
     
-    func downloadImageToLocalDisk(completionHandler: (localImagePath: String, error: String?) -> Void){
+    func downloadImageToLocalDisk(completionHandler: (localImagePath: String?, error: String?) -> Void){
 //        NSURLConnection.sendAsynchronousRequest(request, queue: mainQueue, completionHandler: { (response, data, error) -&gt; Void in
         
         
@@ -48,8 +48,8 @@ class Photo: NSManagedObject {
             let mainQueue = NSOperationQueue.mainQueue()
             NSURLConnection.sendAsynchronousRequest(requestToUse, queue: mainQueue, completionHandler: { (response, returnedData, error) -> Void in
                 if let uw_error = error {
-                    println("there has been an error downloading the file")
-                    
+                    print("there has been an error downloading the file, error : \(uw_error)")
+
                 }
                 else {
                     let imageData = returnedData
@@ -89,12 +89,16 @@ class Photo: NSManagedObject {
 
     func deletefileFromLocal() {
         var error: NSError?
-        NSFileManager.defaultManager().removeItemAtPath(self.getCachedPath(), error: &error)
-        println(error)
+        do {
+            try NSFileManager.defaultManager().removeItemAtPath(self.getCachedPath())
+        } catch let error1 as NSError {
+            error = error1
+        }
+        print(error)
     }
     
     func getCachedPath() -> String {
-        var urlToReturn: String = documentsDirectory + cacheddUrl
+        let urlToReturn: String = documentsDirectory + cacheddUrl
         return urlToReturn
     }
     
