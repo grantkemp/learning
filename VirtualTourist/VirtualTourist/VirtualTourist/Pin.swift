@@ -42,12 +42,6 @@ class Pin : NSManagedObject {
         
     }
 
-    func pinStatus(){
-        print(self.objectID)
-        print("pin has \(self.attachedPhotos.count) photos)")
-        print("is a temp id: \(self.objectID.temporaryID)")
-        print("pin is lat \(lat) and long \(long)")
-    }
     
     //MARK: ID Method
     
