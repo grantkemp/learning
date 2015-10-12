@@ -1,6 +1,6 @@
 #Virtual Tourist App #
 
-##Objective## 
+##Objective
 This app was created as part of my Udacity NanoDegree project
 
 ##Functionality##
