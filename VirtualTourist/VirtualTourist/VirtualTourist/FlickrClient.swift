@@ -52,9 +52,8 @@ class FlickrClient:NSObject {
         //Make the Request
         let task = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
             if let downloadError = error {
-                println("there was an error downloading")
-                println(error)
-                completionHandler(result: nil, error: error)
+
+                completionHandler(result: nil, error: downloadError)
             }
             
             else {
@@ -63,6 +62,7 @@ class FlickrClient:NSObject {
                 if let parsingError = error  {
                     print("error parsing Downloaded Data Error: \(parsingError)")
                     
+                    completionHandler(result: nil, error: parsingError)
                 }
                 else {
                     //Cache that we have downloaded images for this pin

@@ -168,7 +168,6 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
     func downloadnewPinPics(){ 
         FlickrClient.sharedInstance().GetFlickrPhotoUrls(self.selectedPin!) { (resultPinAlbum, error) -> Void in
             if let pinDownloadError = error {
-                println("unable to download pins")
                 let errorDescription = error?.localizedDescription
                 self.showDialogAlertInternet("Oops, there has been an error", errorMessage: errorDescription!)
             }
@@ -186,7 +185,6 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         
         alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
             alert.dismissViewControllerAnimated(true, completion: { () -> Void in
-                println("alert removed")
                 
             })
 

@@ -66,7 +66,6 @@ class Photo: NSManagedObject {
                         
                         //check if its already downloaded:
                         if NSFileManager.defaultManager().fileExistsAtPath(savePath) {
-                            println("The file already exists!")
                             imagePathToShow = savePath
                         }
                         else {

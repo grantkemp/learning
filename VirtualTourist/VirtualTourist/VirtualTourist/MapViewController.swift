@@ -126,9 +126,9 @@ pinManager.cdPinCollection = collectionToUse
         }
         else {
           //  check if there is a matching ObjectId
-            pinManager.findMatchingPinInCollection(view.annotation, completionHandler: { (matchedPin, error) -> Void in
-                if let un_error = error {
-                    println(error)
+            pinManager.findMatchingPinInCollection(view.annotation!, completionHandler: { (matchedPin, error) -> Void in
+                if let uw_error = error {
+                    print(uw_error)
                 }
                 else {
                     self.selectedPin = matchedPin
@@ -206,7 +206,6 @@ pinManager.cdPinCollection = collectionToUse
         }
         else {
             //first result always shown as there is only 1 collection
-            let resultsCount = results!.count
             if results?.count == 0 {
                 //create a  new default collection
                 mainCollection = PinCollection(createNew: true, context: sharedContext)
@@ -214,7 +213,6 @@ pinManager.cdPinCollection = collectionToUse
             }
             else {
                 mainCollection = results?.first as? PinCollection
-                println(mainCollection)
             }
             
         }
